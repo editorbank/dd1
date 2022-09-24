@@ -3,7 +3,7 @@ from .dd1_num_bin import *
 from .dd1_num_dec import *
 from .dd1_num_oct import *
 from .dd1_num_hex import *
-from .dd1_ip import *
+from .dd1_www import *
 
 _DD1_NAME_TEMPLATE = re.compile("^DD1_([0-9A-Z_]+)$")
 
@@ -20,4 +20,4 @@ def detect(value:str)->list:
   for k in symptoms:
     if symptoms[k].match(value):
       diagnosis.append(k)
-  return diagnosis
+  return sorted(diagnosis)
