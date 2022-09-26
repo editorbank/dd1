@@ -16,7 +16,7 @@ def dd1_names():
 
 symptoms = { _extact_name(k):re.compile(globals()[k]) for k in dd1_names()}
 
-def detect(value:str)->list:
+def detect_str(value:str)->list:
   diagnosis = []
   for k in symptoms:
     if symptoms[k].match(value):
