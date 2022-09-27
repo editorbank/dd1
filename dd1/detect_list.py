@@ -1,6 +1,6 @@
-from .detect_str import detect_str
+from .detect_str import alltags, detect_str
 
-def list_and(a:list, b:list):
+def set_intersection(a:set, b:set):
   return [ i for i in a if i in b ]
 
 def detect_list(values:list):
@@ -9,5 +9,5 @@ def detect_list(values:list):
   else:
     res = detect_str(values[0])
     for one_detect in values[1:]:
-      res = list_and(res, detect_str(one_detect))
+      res = set_intersection(res, detect_str(one_detect))
   return res

@@ -11,14 +11,14 @@ _extact_name_re = re.compile("^DD1_([0-9A-Z_]+)$")
 def _extact_name(dd1_name:str):
   return _extact_name_re.match(dd1_name)[1]
 
-def dd1_names():
-  return [k for k in globals() if _extact_name_re.match(k)]
+def alltags()->set:
+  return {k for k in globals() if _extact_name_re.match(k)}
 
-symptoms = { _extact_name(k):re.compile(globals()[k]) for k in dd1_names()}
+symptoms = { _extact_name(k):re.compile(globals()[k]) for k in alltags()}
 
-def detect_str(value:str)->list:
-  diagnosis = []
+def detect_str(value:any)->set:
+  ret = {type(value).__name__}
   for k in symptoms:
-    if symptoms[k].match(value):
-      diagnosis.append(k)
-  return sorted(diagnosis)
+    if symptoms[k].match(f"{value}"):
+      ret.add(k)
+  return ret
