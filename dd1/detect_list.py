@@ -1,13 +1,17 @@
-from .detect_str import detect_str
+from .detect_str import alltags, detect_str
 
-def list_and(a:list, b:list):
+def set_intersection(a:set, b:set):
   return [ i for i in a if i in b ]
 
 def detect_list(values:list):
   if len(values)==1:
-    return detect_str(values[0])
+    d1 = sorted(detect_str(values[0]))
+    return {"all": d1, "meets": d1}
   else:
-    res = detect_str(values[0])
-    for one_detect in values[1:]:
-      res = list_and(res, detect_str(one_detect))
-  return res
+    all = detect_str(values[0])
+    meets = all
+    for value in values[1:]:
+      d1 = detect_str(value)
+      all = set_intersection(all, d1)
+      meets.update(d1)
+  return {"all": sorted(all), "meets": sorted(list(meets))}
