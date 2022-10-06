@@ -1,4 +1,5 @@
-from .ree import ree, ree_file, res, res_file
+import re
+from .ree import ree, ree_file, res_str, res_file
 
 _IP1 = "([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])"
 _NAME_RFC1123 = r"([-0-9a-zA-Z]{1,64})"
@@ -20,7 +21,7 @@ DD1_EMAIL_GOOD = f"^{_EMAIL_LOCAL_NAME}@({_IP4}|{_HOST_NAME_RFC1123})$"
 
 # DD1_EMAIL_LIKE = "([^@\"]+|\"[^\"]+\")@[^@\s]+"
 # DD1_EMAIL_LIKE = ree_file("DD1_EMAIL_LIKE.ree")
-DD1_EMAIL_LIKE = ree("""
+DD1_EMAIL_LIKE = ("""(?x)
   #локальное имя почтового ящика
   (
     [^@\"]+
@@ -34,9 +35,8 @@ DD1_EMAIL_LIKE = ree("""
   [^@\s]+
 """)
 
-# DD1_EMAIL_RFC822 = res_file("EMAIL_RFC822.Paul_Warren_17.09.2012.res")
 #EMAIL RFC822 Paul Warren 17/09/2012
-DD1_EMAIL_RFC822 = res(r"""
+DD1_EMAIL_RFC822 = res_str(r"""
 (?:(?:\r\n)?[ \t])*(?:(?:(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t]
 )+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:
 \r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(

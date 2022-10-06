@@ -5,6 +5,7 @@ from .dd1_num_oct import *
 from .dd1_num_hex import *
 from .dd1_www import *
 from .dd1_date import *
+from .dd1_main import *
 
 _extact_name_re = re.compile("^DD1_([0-9A-Z_]+)$")
 
