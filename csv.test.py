@@ -31,11 +31,9 @@ assert(json.loads(json.dumps(d)) == json.loads(r"""
  "fields": {
   "id": {
    "all": [
-    "CYRILIC_TEXT",
     "DIGIT_ONLY",
     "HOST",
     "HOST_NAME_RFC1123",
-    "LATIN_TEXT",
     "NUM",
     "NUM_HEX",
     "NUM_HEX_SIG",
@@ -45,30 +43,18 @@ assert(json.loads(json.dumps(d)) == json.loads(r"""
     "str"
    ],
    "meets": [
-    "CYRILIC_TEXT",
-    "DIGIT_ONLY",
-    "HOST",
-    "HOST_NAME_RFC1123",
-    "LATIN_TEXT",
-    "NUM",
-    "NUM_HEX",
-    "NUM_HEX_SIG",
-    "NUM_OCT",
-    "NUM_OCT_SIG",
-    "NUM_SIG",
-    "str"
+    "NUM_BIN",
+    "NUM_BIN_SIG",
+    "ZERO"
    ]
   },
   "name": {
    "all": [
-    "CYRILIC_ONLY",
     "CYRILIC_TEXT",
     "str"
    ],
    "meets": [
-    "CYRILIC_ONLY",
-    "CYRILIC_TEXT",
-    "str"
+    "CYRILIC_ONLY"
    ]
   }
  }
