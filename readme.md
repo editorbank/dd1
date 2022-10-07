@@ -9,21 +9,10 @@
 
 ## Примеры запуска
 
-Любые ОС:
 ```
 python -m dd1
 python -m dd1 tags
 python -m dd1 value 0
 python -m dd1 list 0 1 -2 aaa
-```
-
-linux:
-```
-python -m dd1 csv filename=test/data-20200115T1130-structure-20200115T1130.csv encoding=utf-8 'quotechar="' >out.json
-```
-
-windows:
-```
-python -m dd1 csv filename=test/data-20200115T1130-structure-20200115T1130.csv encoding=utf-8 quotechar=\^"
-python -m dd1 csv filename=test/data-20200115T1130-structure-20200115T1130.csv encoding=utf-8 quotechar=\^" >out.json
+python -m dd1 csv filename=test/data-20200115T1130-structure-20200115T1130.csv encoding=utf-8 quotechar="\x22" >out.json
 ```
