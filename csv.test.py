@@ -13,7 +13,7 @@ def as_jsons(s:str)->str:
 
 
 # d = detect_csv(filename="test/structure-20200115T1130.csv", encoding='utf-8')
-d = detect_csv(filename="test/data-20200115T1130-structure-20200115T1130.csv", encoding='utf-8', quotechar="\"")
+# d = detect_csv(filename="test/data-20200115T1130-structure-20200115T1130.csv", encoding='utf-8', quotechar="\"")
 # d = detect_csv(filename="test/structure-20200320T1016.csv", encoding='windows-1251')
 # d = detect_csv(filename="test/data-20200320T1016-structure-20200320T1016.csv", encoding='windows-1251')
 # d = detect_csv(filename="test/419_doma_rebenka.csv",delimiter="\t", encoding='utf-8')
@@ -21,27 +21,15 @@ d = detect_csv(filename="test/data-20200115T1130-structure-20200115T1130.csv", e
 # d = detect_csv(filename="test/anylised_messages_tag.csv",delimiter=",", encoding='utf-8')
 # d = detect_csv(filename="test/phone_data.csv")
 # d = detect_csv(filename="test/Missouri_Active_Alcohol_License_Data (Excel (Europe)).csv",delimiter=";")
-# d = detect_csv(filename="test/data1.csv", delimiter=",", encoding='utf-8')
+d = detect_csv(filename="test/data1.csv", delimiter=",", encoding='utf-8')
 
-# print(as_jsono(d))
+#print(as_jsono(d))
 
 assert(json.loads(json.dumps(d)) == json.loads(r"""
 {
- "filename": "test/data-20200115T1130-structure-20200115T1130.csv",
+ "filename": "test/data1.csv",
  "fields": {
-  "Nameagency": {
-   "all": [
-    "CYRILIC_ONLY",
-    "CYRILIC_TEXT",
-    "str"
-   ],
-   "meets": [
-    "CYRILIC_ONLY",
-    "CYRILIC_TEXT",
-    "str"
-   ]
-  },
-  "Year": {
+  "id": {
    "all": [
     "CYRILIC_TEXT",
     "DIGIT_ONLY",
@@ -71,7 +59,7 @@ assert(json.loads(json.dumps(d)) == json.loads(r"""
     "str"
    ]
   },
-  "Month": {
+  "name": {
    "all": [
     "CYRILIC_ONLY",
     "CYRILIC_TEXT",
@@ -80,70 +68,9 @@ assert(json.loads(json.dumps(d)) == json.loads(r"""
    "meets": [
     "CYRILIC_ONLY",
     "CYRILIC_TEXT",
-    "str"
-   ]
-  },
-  "RusFedsub": {
-   "all": [
-    "str"
-   ],
-   "meets": [
-    "CYRILIC_TEXT",
-    "str"
-   ]
-  },
-  "Avtemp": {
-   "all": [
-    "CYRILIC_TEXT",
-    "HOST_NAME_RFC1123",
-    "LATIN_TEXT",
-    "str"
-   ],
-   "meets": [
-    "CYRILIC_TEXT",
-    "DATE_LIKE",
-    "DIGIT_ONLY",
-    "EMPTY_ONLY",
-    "HOST",
-    "HOST_NAME_RFC1123",
-    "LATIN_TEXT",
-    "NUM",
-    "NUM_BIN_SIG",
-    "NUM_HEX",
-    "NUM_HEX_SIG",
-    "NUM_OCT",
-    "NUM_OCT_SIG",
-    "NUM_SIG",
-    "str"
-   ]
-  },
-  "Rainfall": {
-   "all": [
-    "CYRILIC_TEXT",
-    "LATIN_TEXT",
-    "str"
-   ],
-   "meets": [
-    "CYRILIC_TEXT",
-    "DATE_LIKE",
-    "DIGIT_ONLY",
-    "EMPTY_ONLY",
-    "HOST",
-    "HOST_NAME_RFC1123",
-    "LATIN_TEXT",
-    "NUM",
-    "NUM_HEX",
-    "NUM_HEX_SIG",
-    "NUM_OCT",
-    "NUM_OCT_SIG",
-    "NUM_SIG",
     "str"
    ]
   }
  }
 }
 """))
-
-#for k,v in zip(d.keys(), d.values()):
-#  print(f"field: \"{k}\" tags: {', '.join(v)}")
-#print()
