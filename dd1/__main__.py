@@ -1,6 +1,7 @@
 from sys import argv
-from . import detect, detect_list, detect_csv, alltags 
+from . import detect, detect_list, detect_csv, alltags
 import json
+from .detect_csv import reader_options
 
 def dumps(obj)->str:
   return json.dumps(obj, indent=1, ensure_ascii=False)
@@ -19,7 +20,7 @@ if __name__ == "__main__":
       args = {}
       for v in argv[2:]:
         vs = v.split("=",maxsplit=2)
-        args[vs[0]]=vs[1]
+        args[vs[0]]=vs[1].encode().decode('unicode-escape') if vs[0] in (reader_options) else vs[1]
       print(dumps(detect_csv(**args)))
     else:
       print("Undefined function!")  

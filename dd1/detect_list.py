@@ -6,7 +6,7 @@ def set_intersection(a:set, b:set):
 def detect_list(values:list):
   if len(values)==1:
     d1 = sorted(detect_str(values[0]))
-    return {"all": d1, "meets": d1}
+    return {"all": d1, "meets": []}
   else:
     all = detect_str(values[0])
     meets = all
@@ -14,4 +14,4 @@ def detect_list(values:list):
       d1 = detect_str(value)
       all = set_intersection(all, d1)
       meets.update(d1)
-  return {"all": sorted(all), "meets": sorted(list(meets))}
+  return {"all": sorted(all), "meets": sorted([i for i in meets if i not in all])}
