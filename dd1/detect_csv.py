@@ -21,13 +21,14 @@ reader_options = (
   "quoting",
   "strict",
 )
+escaped_options = file_options + reader_options
 
 def _all_csv_by_cols(filename:str,**options):
   with open(filename,"r",**get_if_exists(file_options,options)) as f:
     reader = csv.DictReader(f,**get_if_exists(reader_options, options))
     ret = {header:[] for header in reader.fieldnames}
     for row in reader:
-      for header in ret: 
+      for header in ret:
         ret[header].append(row[header])
     return ret
 
