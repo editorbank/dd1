@@ -23,7 +23,8 @@ symptoms = { _extact_name(k):re.compile(globals()[k]) for k in dd1_tags()}
 def detect_value(value:any)->set:
   ret = {type(value).__name__}
   for k in symptoms:
+    # print(f"---{k!r}---{value!r}")
     if symptoms[k].match(f"{value}"):
-    # if symptoms[k].search(f"{value}"):
+    # if symptoms[k].search(f"{value}"): # TODO Разобраться почему тормозит search
       ret.add(k)
   return ret
