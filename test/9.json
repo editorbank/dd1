@@ -1,0 +1,341 @@
+{
+ "filename": "test/9.csv",
+ "fields": {
+  "﻿LICENSEE": {
+   "all": [
+    "LATIN_TEXT",
+    "str"
+   ],
+   "meets": [
+    "EMAIL_LIKE",
+    "EMAIL_RFC822",
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY"
+   ]
+  },
+  "DBANAME": {
+   "all": [
+    "str"
+   ],
+   "meets": [
+    "DATE_LIKE",
+    "DIGIT_ONLY",
+    "EMAIL_RFC822",
+    "EMPTY_ONLY",
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "LATIN_TEXT",
+    "NUM",
+    "NUM_BIN",
+    "NUM_BIN_SIG",
+    "NUM_HEX",
+    "NUM_HEX_SIG",
+    "NUM_OCT",
+    "NUM_OCT_SIG",
+    "NUM_SIG"
+   ]
+  },
+  "STREET NUMBER": {
+   "all": [
+    "str"
+   ],
+   "meets": [
+    "DATE_LIKE",
+    "DIGIT_ONLY",
+    "EMPTY_ONLY",
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "LATIN_TEXT",
+    "NUM",
+    "NUM_BIN",
+    "NUM_BIN_SIG",
+    "NUM_HEX",
+    "NUM_HEX_SIG",
+    "NUM_OCT",
+    "NUM_OCT_SIG",
+    "NUM_SIG"
+   ]
+  },
+  "STREET": {
+   "all": [
+    "str"
+   ],
+   "meets": [
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "LATIN_TEXT"
+   ]
+  },
+  "CITY": {
+   "all": [
+    "str"
+   ],
+   "meets": [
+    "DATE_LIKE",
+    "EMPTY_ONLY",
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "LATIN_TEXT"
+   ]
+  },
+  "STATE": {
+   "all": [
+    "HOST_NAME_RFC1123",
+    "str"
+   ],
+   "meets": [
+    "DATE_LIKE",
+    "EMPTY_ONLY",
+    "HOST",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "LATIN_TEXT",
+    "NUM_HEX",
+    "NUM_HEX_SIG"
+   ]
+  },
+  "ZIPCODE": {
+   "all": [
+    "HOST_NAME_RFC1123",
+    "str"
+   ],
+   "meets": [
+    "DATE_LIKE",
+    "DATE_YYYYDDMM",
+    "DIGIT_ONLY",
+    "EMPTY_ONLY",
+    "HOST",
+    "NUM",
+    "NUM_HEX",
+    "NUM_HEX_SIG",
+    "NUM_OCT",
+    "NUM_OCT_SIG",
+    "NUM_SIG"
+   ]
+  },
+  "PHONE NUMBER": {
+   "all": [
+    "DIGIT_ONLY",
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "NUM",
+    "NUM_HEX",
+    "NUM_HEX_SIG",
+    "NUM_SIG",
+    "str"
+   ],
+   "meets": [
+    "NUM_BIN",
+    "NUM_BIN_SIG",
+    "NUM_OCT",
+    "NUM_OCT_SIG",
+    "ZERO"
+   ]
+  },
+  "PRIMARY LICENSE": {
+   "all": [
+    "DIGIT_ONLY",
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "NUM",
+    "NUM_HEX",
+    "NUM_HEX_SIG",
+    "NUM_SIG",
+    "str"
+   ],
+   "meets": [
+    "DATE_DDMMYY",
+    "DATE_LIKE",
+    "DATE_MMDDYY",
+    "DATE_YYDDMM",
+    "DATE_YYMMDD",
+    "NUM_OCT",
+    "NUM_OCT_SIG"
+   ]
+  },
+  "SECONDARY LICENSE": {
+   "all": [
+    "DIGIT_ONLY",
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "NUM",
+    "NUM_HEX",
+    "NUM_HEX_SIG",
+    "NUM_SIG",
+    "str"
+   ],
+   "meets": [
+    "DATE_DDMMYY",
+    "DATE_LIKE",
+    "DATE_MMDDYY",
+    "DATE_YYDDMM",
+    "DATE_YYMMDD",
+    "NUM_BIN",
+    "NUM_BIN_SIG",
+    "NUM_OCT",
+    "NUM_OCT_SIG",
+    "ZERO"
+   ]
+  },
+  "PRIMARY TYPE": {
+   "all": [
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "LATIN_TEXT",
+    "str"
+   ],
+   "meets": [
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "NUM_HEX",
+    "NUM_HEX_SIG"
+   ]
+  },
+  "SECONDARY TYPE": {
+   "all": [
+    "str"
+   ],
+   "meets": [
+    "DATE_LIKE",
+    "EMPTY_ONLY",
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "LATIN_TEXT",
+    "SPACE_ONLY"
+   ]
+  },
+  "COUNTY": {
+   "all": [
+    "LATIN_TEXT",
+    "str"
+   ],
+   "meets": [
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "NUM_HEX",
+    "NUM_HEX_SIG"
+   ]
+  },
+  "DISTRICT": {
+   "all": [
+    "DIGIT_ONLY",
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "NUM",
+    "NUM_HEX",
+    "NUM_HEX_SIG",
+    "NUM_OCT",
+    "NUM_OCT_SIG",
+    "NUM_SIG",
+    "str"
+   ],
+   "meets": [
+    "NUM_BIN",
+    "NUM_BIN_SIG"
+   ]
+  },
+  "SUBDIST": {
+   "all": [
+    "DIGIT_ONLY",
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "NUM",
+    "NUM_HEX",
+    "NUM_HEX_SIG",
+    "NUM_OCT",
+    "NUM_OCT_SIG",
+    "NUM_SIG",
+    "str"
+   ],
+   "meets": [
+    "NUM_BIN",
+    "NUM_BIN_SIG",
+    "ZERO"
+   ]
+  },
+  "LATLNG": {
+   "all": [
+    "str"
+   ],
+   "meets": [
+    "DATE_LIKE",
+    "EMPTY_ONLY",
+    "HOST_NAME_RFC1123"
+   ]
+  },
+  "Assoc": {
+   "all": [
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "LATIN_TEXT",
+    "str"
+   ],
+   "meets": []
+  },
+  "First Name": {
+   "all": [
+    "str"
+   ],
+   "meets": [
+    "DATE_LIKE",
+    "EMPTY_ONLY",
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "LATIN_TEXT",
+    "NUM_HEX",
+    "NUM_HEX_SIG"
+   ]
+  },
+  "Last Name": {
+   "all": [
+    "LATIN_TEXT",
+    "str"
+   ],
+   "meets": [
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "NUM_HEX",
+    "NUM_HEX_SIG"
+   ]
+  },
+  "Phone": {
+   "all": [
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "NUM_HEX_SIG",
+    "NUM_SIG",
+    "str"
+   ],
+   "meets": [
+    "DIGIT_ONLY",
+    "NUM",
+    "NUM_BIN",
+    "NUM_BIN_SIG",
+    "NUM_HEX",
+    "NUM_OCT",
+    "NUM_OCT_SIG",
+    "ZERO"
+   ]
+  }
+ }
+}
