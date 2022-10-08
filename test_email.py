@@ -21,8 +21,8 @@ class TestCase(unittest.TestCase):
     assert('EMAIL_RFC822' in detect_value("1e.z'_1a-Z-@a.b"))
     assert('str' in detect_value("1e.z'_1a-Z-@a.b"))
 
-    assert('EMAIL_RFC822' in detect_list(['a@b', "!#$%&'*+-/=?^_`{}|~09azAZ@aa.bb", '"aaa bbb"@xxx.yy', "1e.z'_1a-Z-@a.b"])['all'])
-    assert('str' in detect_list(['a@b', "!#$%&'*+-/=?^_`{}|~09azAZ@aa.bb", '"aaa bbb"@xxx.yy', "1e.z'_1a-Z-@a.b"])['all'])
+    assert('EMAIL_RFC822' in detect_list(['a@b', "!#$%&'*+-/=?^_`{}|~09azAZ@aa.bb", '"aaa bbb"@xxx.yy', "1e.z'_1a-Z-@a.b"]))
+    assert('str' in detect_list(['a@b', "!#$%&'*+-/=?^_`{}|~09azAZ@aa.bb", '"aaa bbb"@xxx.yy', "1e.z'_1a-Z-@a.b"]))
 
 if __name__ == '__main__':
   unittest.main()

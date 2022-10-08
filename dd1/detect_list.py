@@ -1,17 +1,15 @@
+import collections
+from .const import KEY_UNIQUE
 from .detect_value import detect_value
 
-def set_intersection(a:set, b:set):
-  return [ i for i in a if i in b ]
-
 def detect_list(values:list):
-  if len(values)==1:
-    d1 = sorted(detect_value(values[0]))
-    return {"all": d1, "meets": []}
-  else:
-    all = detect_value(values[0])
-    meets = all
-    for value in values[1:]:
-      d1 = detect_value(value)
-      all = set_intersection(all, d1)
-      meets.update(d1)
-  return {"all": sorted(all), "meets": sorted([i for i in meets if i not in all])}
+  unique = set()
+  ret = collections.OrderedDict()
+
+  for value in values:
+    unique.add(value)
+    cur = detect_value(value)
+    for i in cur:
+      ret[i] = ret[i] + cur[i] if i in ret else cur[i]
+  ret[KEY_UNIQUE]=len(unique)
+  return ret

@@ -12,7 +12,7 @@ if __name__ == "__main__":
       print(dumps(list(sorted(alltags()))))
     elif func == "value" and len(argv) > 2:
       for i in range(2,len(argv)):
-        print(dumps(list(sorted(detect_value(argv[i])))))
+        print(dumps(detect_value(argv[i])))
     elif func == "list" and len(argv) > 2:
       print(dumps(detect_list(argv[2:])))
     elif func == "csv" and len(argv) > 2:
