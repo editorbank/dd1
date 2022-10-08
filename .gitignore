@@ -1,6 +1,5 @@
 __pycache__
 *.pyc
-.vscode
 *.tmp.py
 *.tmp
 .venv
