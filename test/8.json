@@ -1,0 +1,91 @@
+{
+ "filename": "test/8.csv",
+ "fields": {
+  "index": {
+   "all": [
+    "DIGIT_ONLY",
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "NUM",
+    "NUM_HEX",
+    "NUM_HEX_SIG",
+    "NUM_SIG",
+    "str"
+   ],
+   "meets": [
+    "NUM_BIN",
+    "NUM_BIN_SIG",
+    "NUM_OCT",
+    "NUM_OCT_SIG",
+    "ZERO"
+   ]
+  },
+  "date": {
+   "all": [
+    "str"
+   ],
+   "meets": [
+    "DATETIME_LIKE"
+   ]
+  },
+  "duration": {
+   "all": [
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "str"
+   ],
+   "meets": [
+    "DIGIT_ONLY",
+    "NUM",
+    "NUM_BIN",
+    "NUM_BIN_SIG",
+    "NUM_HEX",
+    "NUM_HEX_SIG",
+    "NUM_OCT",
+    "NUM_OCT_SIG",
+    "NUM_SIG"
+   ]
+  },
+  "item": {
+   "all": [
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "LATIN_TEXT",
+    "str"
+   ],
+   "meets": []
+  },
+  "month": {
+   "all": [
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "str"
+   ],
+   "meets": []
+  },
+  "network": {
+   "all": [
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "LATIN_TEXT",
+    "str"
+   ],
+   "meets": []
+  },
+  "network_type": {
+   "all": [
+    "HOST",
+    "HOST_NAME_RFC1123",
+    "HOST_NAME_RFC952",
+    "LATIN_ONLY",
+    "LATIN_TEXT",
+    "str"
+   ],
+   "meets": []
+  }
+ }
+}
