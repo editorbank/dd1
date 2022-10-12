@@ -1,52 +1,105 @@
-import uuid 
 from re import compile
+from .const import KEY_LEN, KEY_UNIQUE, KEY_COUNT
+from .const import RESULT_EMPTY
+from .result import result
 
-from dd1.const import KEY_LEN
-
-class empty_detection(dict):
-  ...
-
-EMPTY_DETECTION = empty_detection()
-
-class the_detection(empty_detection):
-  def __init__(self, key: str = "", value: any = ...):
-    if key!="":
-      self[key] = value
-
-
-class value_detector:
+class detector:
   """
-  Базовый класс и блок обнаружения не None значения 
+  Детектор абстактный
   """
-  def __init__(self, id: str = ""):
-    self.id = id if type(id) == str and id != "" else uuid.uuid4().hex
-    self._true_result = the_detection(self.id, 1)
-    # self._true_result.update(the_detection(KEY_LEN, 1))
-    self._value = None
+  def __init__(self):
+    """Конструктор"""
+    super().__init__()
+    self._result = result()
 
   def value(self, value: any):
-    self._value = value
-    return self
+    """Метод передачи значения детектору. Может вызываться несколько раз."""
+    pass
 
-  def result(self)->the_detection:
-    return self._true_result if self._value else EMPTY_DETECTION
+  def result(self)->result:
+    """Получение результата анализа"""
+    return self._result
 
-class regexp_detector(value_detector):
+  def reset(self):
+    """Сброс детектора в начальное состояние"""
+    self._result = result()
+
+
+class detector_identified(detector):
   """
-  Блок обнаружения на основе регулярного выражения
+  Детектор с идентификатором
   """
-  def __init__(self, id: str = "", re: str = ...):
+  def __init__(self, id: str = ""):
+    super().__init__()
+    self.id:str = id if type(id) == str and id != "" else ""
+
+class detector_count(detector_identified):
+  """
+  Детектор количества переданных значений
+  """
+  def __init__(self, id: str = KEY_LEN):
+    super().__init__(id)
+
+  def value(self, value: any):
+    self._result.add({self.id:1})
+
+class detector_regexp(detector_identified):
+  """
+  Детектор на основе регулярного выражения
+  """
+  def __init__(self, id: str = ..., re: str = ...):
     super().__init__(id)
     self._re = compile(re)
 
   def value(self, value: any):
-    return super().value(self._re.match(value))
+    if self._re.match(f"{value}"):
+      self._result.add({self.id:1})
 
-class type_detector(value_detector):
+class detector_pytype(detector):
   """
   Детектор типа python
   """
   def value(self, value: any):
-    self._true_result = the_detection(type(value).__name__, 1)
-    return super().value(True)
+    self._result.add({type(value).__name__:1})
 
+class detector_unique(detector_identified):
+  """
+  Детектор количества уникальных значений в списке
+  """
+  def __init__(self, id: str = KEY_UNIQUE):
+    super().__init__(id)
+    self._unique = set()
+
+  def value(self, value: any):
+    self._unique.add(value)
+
+  def result(self)->result:
+    return result(**{self.id:len(self._unique)})
+
+  def reset(self):
+    self._unique = set()
+    return super().reset()
+
+
+class detector_group(detector):
+  """
+  Детектор списка значений по группе детекторов
+  """
+  def __init__(self, detectors: list):
+    super().__init__()
+    self._detectors = detectors
+
+  def value(self, value: any):
+    for dt in self._detectors:
+      dt.value(value)
+
+  def result(self)->result:
+    res = result()
+    for dt in self._detectors:
+      res.add(dt.result())
+    return res
+
+  def reset(self):
+    for dt in self._detectors:
+      dt.reset()
+    return super().reset()
