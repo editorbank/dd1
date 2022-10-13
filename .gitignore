@@ -1,6 +1,6 @@
 __pycache__
+__old__
 *.pyc
-.vscode
 *.tmp.py
 *.tmp
 .venv

@@ -1,0 +1,14 @@
+{
+    "svgeditor.indentSize": 2,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "python.testing.unittestArgs": [
+      "-v",
+      "-s",
+      ".",
+      "-p",
+      "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true
+}

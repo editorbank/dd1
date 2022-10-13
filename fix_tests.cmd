@@ -1,3 +1,4 @@
+@python -B -m dd1 tags >test\tags.json
 @if exist "test/0.csv" >test\0.json python -B -m dd1 csv filename="test/0.csv" delimiter=","  encoding="utf-8"
 @if exist "test/1.csv" >test\1.json python -B -m dd1 csv filename="test/1.csv" encoding="utf-8"
 @if exist "test/2.csv" >test\2.json python -B -m dd1 csv filename="test/2.csv" encoding="utf-8" quotechar="\x22"
