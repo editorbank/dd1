@@ -1,6 +1,5 @@
 from re import compile
-from .const import KEY_LEN, KEY_UNIQUE, KEY_COUNT
-from .const import RESULT_EMPTY
+from .const import KEY_LEN, KEY_UNIQUE
 from .result import result
 
 class detector:
@@ -85,21 +84,21 @@ class detector_group(detector):
   """
   Детектор списка значений по группе детекторов
   """
-  def __init__(self, detectors: list):
+  def __init__(self, detectors: list = []):
     super().__init__()
-    self._detectors = detectors
+    self.detectors = detectors
 
   def value(self, value: any):
-    for dt in self._detectors:
+    for dt in self.detectors:
       dt.value(value)
 
   def result(self)->result:
     res = result()
-    for dt in self._detectors:
+    for dt in self.detectors:
       res.add(dt.result())
     return res
 
   def reset(self):
-    for dt in self._detectors:
+    for dt in self.detectors:
       dt.reset()
     return super().reset()

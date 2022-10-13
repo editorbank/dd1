@@ -1,5 +1,7 @@
 python -B -m unittest||(echo Error in unittest! & exit 1)
 @echo Console tests ...
+@if exist "test/tags.json" >tags.tmp python -B -m dd1 tags
+
 @if exist "test/0.csv" >0.tmp python -B -m dd1 csv filename="test/0.csv" delimiter=","  encoding="utf-8"
 @if exist "test/1.csv" >1.tmp python -B -m dd1 csv filename="test/1.csv" encoding="utf-8"
 @if exist "test/2.csv" >2.tmp python -B -m dd1 csv filename="test/2.csv" encoding="utf-8" quotechar="\x22"
