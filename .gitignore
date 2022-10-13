@@ -4,5 +4,5 @@ __old__
 *.tmp.py
 *.tmp
 .venv
-test/*
+test/?.*
 !test/0.*
