@@ -23,13 +23,12 @@ def detectors_regexp_by_mask(d:dict, maks: str = r"^(.+)$", group_id = 0):
   return detectors
 
 def make_global_detector()->detector_group:
-  dt = detector_group(detectors=[
+  return detector_group(
     detector_count(),
     detector_unique(),
     detector_pytype(),
-  ])
-  dt.detectors.extend(detectors_regexp_by_mask(globals(), _EXTRACT_NAME_RE, _EXTRACT_NAME_P))
-  return dt
+    *(detectors_regexp_by_mask(globals(), _EXTRACT_NAME_RE, _EXTRACT_NAME_P))
+  )
 
 GLOBAL_DETECTOR = make_global_detector()
 
