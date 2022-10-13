@@ -1,0 +1,10 @@
+{
+ "CYRILIC_TEXT": 12,
+ "DATE_LIKE": 6,
+ "EMPTY_ONLY": 6,
+ "HOST_NAME_RFC1123": 6,
+ "LATIN_TEXT": 18,
+ "len": 40,
+ "str": 40,
+ "unique": 32
+}

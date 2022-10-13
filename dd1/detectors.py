@@ -84,9 +84,9 @@ class detector_group(detector):
   """
   Детектор списка значений по группе детекторов
   """
-  def __init__(self, detectors: list = []):
+  def __init__(self, *detectors: tuple):
     super().__init__()
-    self.detectors = detectors
+    self.detectors = set(detectors)
 
   def value(self, value: any):
     for dt in self.detectors:
