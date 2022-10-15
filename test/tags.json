@@ -37,6 +37,9 @@
  "NUM_OCT_SIG",
  "NUM_SIG",
  "SPACE_ONLY",
+ "TYPE_INCOMPATIBLE",
+ "TYPE_NUMBER",
+ "TYPE_STRING",
  "ZERO",
  "len",
  "unique"

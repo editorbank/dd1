@@ -4,7 +4,7 @@
  "EMPTY_ONLY": 6,
  "HOST_NAME_RFC1123": 6,
  "LATIN_TEXT": 18,
+ "TYPE_STRING": 40,
  "len": 40,
- "str": 40,
  "unique": 32
 }

@@ -1,5 +1,5 @@
 import csv
-from dd1.detect_list import detect_list
+from .detect_list import detect_list
 
 def dict_set_values_from(a:dict,b:dict)->dict:
   for i in a:
