@@ -45,10 +45,10 @@ class TestCase(unittest.TestCase):
     dt.reset(); self.assertEqual(dt.result(), RESULT_EMPTY)
 
   def test_4(self):
-    dt = detector_group(
+    dt = detector_group((
       detector_type(),
       detector_regexp("HELLO", r"^hello$")
-    )
+    ))
     self.assertEqual(dt.result(), RESULT_EMPTY)
     dt.value("hello"); self.assertEqual(dt.result(), {KEY_STRING:1, "HELLO":1})
     dt.reset(); dt.value(1111); self.assertEqual(dt.result(), {KEY_NUMBER:1})
