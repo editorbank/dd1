@@ -1,5 +1,5 @@
 from re import compile
-from .const import KEY_LEN, KEY_UNIQUE
+from .const import *
 from .result import result
 
 class detector:
@@ -23,6 +23,8 @@ class detector:
     """Сброс детектора в начальное состояние"""
     self._result = result()
 
+  def ids(self)->tuple:
+    return tuple()
 
 class detector_identified(detector):
   """
@@ -30,7 +32,10 @@ class detector_identified(detector):
   """
   def __init__(self, id: str = ""):
     super().__init__()
-    self.id:str = id if type(id) == str and id != "" else ""
+    self._id:str = id if type(id) == str and id != "" else ""
+
+  def ids(self) -> tuple:
+    return (self._id,)
 
 class detector_count(detector_identified):
   """
@@ -40,7 +45,7 @@ class detector_count(detector_identified):
     super().__init__(id)
 
   def value(self, value: any):
-    self._result.add({self.id:1})
+    self._result.add({self._id:1})
 
 class detector_regexp(detector_identified):
   """
@@ -52,14 +57,22 @@ class detector_regexp(detector_identified):
 
   def value(self, value: any):
     if self._re.match(f"{value}"):
-      self._result.add({self.id:1})
+      self._result.add({self._id:1})
 
 class detector_pytype(detector):
   """
   Детектор типа python
   """
+  _known_types = (str,bytes,int,float)
+  _known_ids = (KEY_STRING, KEY_STRING, KEY_NUMBER, KEY_NUMBER)
+
   def value(self, value: any):
-    self._result.add({type(value).__name__:1})
+    _type = type(value)
+    _typename = (self._known_ids[self._known_types.index(_type)] if _type in self._known_types else self.TYPE_UNKNOWN)
+    self._result.add({_typename:1})
+
+  def ids(self)->tuple:
+    return (KEY_INCOMPATIBLE, KEY_STRING, KEY_NUMBER)
 
 class detector_unique(detector_identified):
   """
@@ -73,7 +86,7 @@ class detector_unique(detector_identified):
     self._unique.add(value)
 
   def result(self)->result:
-    return result(**{self.id:len(self._unique)})
+    return result(**{self._id:len(self._unique)})
 
   def reset(self):
     self._unique = set()
@@ -86,19 +99,25 @@ class detector_group(detector):
   """
   def __init__(self, *detectors: tuple):
     super().__init__()
-    self.detectors = set(detectors)
+    self._detectors = set(detectors)
 
   def value(self, value: any):
-    for dt in self.detectors:
+    for dt in self._detectors:
       dt.value(value)
 
   def result(self)->result:
     res = result()
-    for dt in self.detectors:
+    for dt in self._detectors:
       res.add(dt.result())
     return res
 
   def reset(self):
-    for dt in self.detectors:
+    for dt in self._detectors:
       dt.reset()
     return super().reset()
+
+  def ids(self) -> tuple:
+    ret = []
+    for i in self._detectors:
+      ret.extend(i.ids())
+    return tuple(ret)

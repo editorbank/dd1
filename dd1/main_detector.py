@@ -33,4 +33,4 @@ def make_global_detector()->detector_group:
 GLOBAL_DETECTOR = make_global_detector()
 
 def alltags()->set:
-  return [dt.id for dt in GLOBAL_DETECTOR.detectors if "id" in dt.__dict__]
+  return GLOBAL_DETECTOR.ids()

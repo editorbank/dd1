@@ -13,8 +13,8 @@
  "NUM_OCT": 3,
  "NUM_OCT_SIG": 4,
  "NUM_SIG": 4,
+ "TYPE_STRING": 5,
  "ZERO": 1,
  "len": 5,
- "str": 5,
  "unique": 4
 }
