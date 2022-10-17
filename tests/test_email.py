@@ -1,4 +1,5 @@
-from dd1 import *
+from _testlib import *
+from dd1 import KEY_STRING
 import unittest
 
 class TestCase(unittest.TestCase):

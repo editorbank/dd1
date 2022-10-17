@@ -1,7 +1,6 @@
-from dd1 import detect_csv
+from _testlib import *
 import json
 import unittest
-from testdata import testdata
 
 def to_jsonfile(obj,filename=".json"):
   with open(filename,"w", encoding="utf-8") as f:

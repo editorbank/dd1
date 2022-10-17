@@ -1,11 +1,8 @@
 import collections
-from .main_detector import GLOBAL_DETECTOR
+from .detectors import detector
 
-def detect_list(values:list):
-  dt = GLOBAL_DETECTOR
-  dt.reset()
+def detect_list(detector: detector, values:list):
+  detector.reset()
   for value in values:
-    dt.value(value)
-  return collections.OrderedDict(sorted(dt.result().items()))
-
-
+    detector.value(value)
+  return collections.OrderedDict(sorted(detector.result().items()))

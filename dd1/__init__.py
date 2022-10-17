@@ -1,5 +1,4 @@
-from .main_detector import alltags
-from .detect_value import detect_value
+from .main_detector import alltags, GLOBAL_DETECTOR
 from .detect_list import detect_list
 from .detect_csv import detect_csv, escaped_options
 from .const import *
