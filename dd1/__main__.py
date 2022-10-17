@@ -1,12 +1,12 @@
 from sys import argv
-
-from . import detect_list, detect_csv, alltags, escaped_options, read_lines_from_file
+from . import detect_list, detect_csv, alltags, escaped_options, read_lines_from_file, GLOBAL_DETECTOR
 import json
+
 
 def dumps(obj)->str:
   return json.dumps(obj, indent=1, ensure_ascii=False)
 
-def dict_from_strings_list(argv)->dict:
+def parse_argv(argv)->dict:
   args = {}
   for v in argv:
     vs = v.split("=",maxsplit=2)
@@ -25,11 +25,11 @@ if __name__ == "__main__":
     if func == "tags":
       print(dumps(list(sorted(alltags()))))
     elif func == "values" and len(argv) > 2:
-      print(dumps(detect_list(argv[2:])))
+      print(dumps(detect_list(GLOBAL_DETECTOR, argv[2:])))
     elif func == "lines" and len(argv) > 2:
-      print(dumps(detect_list(read_lines_from_file(**dict_from_strings_list(argv[2:])))))
+      print(dumps(detect_list(GLOBAL_DETECTOR, read_lines_from_file(**parse_argv(argv[2:])))))
     elif func == "csv" and len(argv) > 2:
-      print(dumps(detect_csv(**dict_from_strings_list(argv[2:]))))
+      print(dumps(detect_csv(GLOBAL_DETECTOR, **parse_argv(argv[2:]))))
     else:
       print(f"Undefined function \"{func}\"!")
       help()

@@ -1,4 +1,4 @@
-from dd1 import detect_list
+from _testlib import *
 import unittest
 
 class TestCase(unittest.TestCase):

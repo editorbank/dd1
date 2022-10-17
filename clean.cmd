@@ -1,4 +1,11 @@
-@if exist __pycache__ rd /S /Q __pycache__ || exit /b 1
-@if exist dd1\__pycache__ rd /S /Q dd1\__pycache__ || exit /b 1
-@if exist *.tmp del /S /Q *.tmp || exit /b 1
+@for %%I in (
+  *.tmp
+) do @if exist %%I del /S /Q %%I || exit /b 1
+
+@for %%I in (
+  .\__pycache__
+  dd1\__pycache__
+  tests\__pycache__
+) do @if exist %%I rd /S /Q %%I || exit /b 1
+
 @echo OK

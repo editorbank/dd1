@@ -1,4 +1,4 @@
-from dd1 import detect_csv
+from _testlib import *
 import json
 import unittest
 
@@ -16,8 +16,8 @@ def as_jsono(obj)->str:
 def as_jsons(s:str)->str:
   return json.dumps(json.loads(s), indent=1, ensure_ascii=False)
 
-received = detect_csv(filename="test/0.csv", delimiter=",", encoding='utf-8')
-expected = from_jsonfile("test/0.json")
+received = detect_csv(filename=testdata("0.csv"), delimiter=",", encoding='utf-8')
+expected = from_jsonfile(testdata("0.json"))
 
 
 #print(as_jsono(d))
