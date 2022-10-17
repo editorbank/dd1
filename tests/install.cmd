@@ -1,0 +1,1 @@
+if not exist dd1 mklink /J dd1 ..\dd1

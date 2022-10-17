@@ -38,4 +38,4 @@ def detect_dict_of_lists(in_dict: dict):
 def detect_csv(**options):
   d = _all_csv_by_cols(**options)
   # print(d)
-  return {"filename":options["filename"], "fields":{ k:detect_list(d[k]) for k in d }}
+  return { k:detect_list(d[k]) for k in d }
