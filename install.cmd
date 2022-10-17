@@ -1,2 +1,1 @@
-@if not exist tests\dd1 mklink /J tests\dd1 .\dd1 || exit /b 1
-@echo OK
+@if not exist tests\dd1 mklink /D tests\dd1 %~dp0dd1
