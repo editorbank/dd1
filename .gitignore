@@ -1,9 +1,13 @@
 __pycache__
+**/__pycache__
 __old__
 *.pyc
 *.tmp.py
 *.tmp
-.venv
+.env
+
 tests/data/?.*
 !tests/data/0.*
+
 tests/dd1
+tuner/dd1

@@ -1,0 +1,31 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "1.Создание виртуальной среды",
+      "type": "shell",
+      "command": "pipenv --python 3",
+      "problemMatcher": []
+    },
+    {
+      "label": "2.Удаление виртуальной среды",
+      "type": "shell",
+      "command": "pipenv --rm",
+      "problemMatcher": []
+    },
+    {
+      "label": "3.Установка зависимостей проекта (для разработки)",
+      "type": "shell",
+      "command": "pipenv install --dev",
+      "problemMatcher": []
+    },
+    {
+      "label": "4.Запуск тестов",
+      "type": "shell",
+      "command": "pipenv run python -m unittest discover -s tests",
+      "problemMatcher": []
+    }
+  ]
+}
