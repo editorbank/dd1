@@ -1,12 +1,9 @@
 import os
 import re
 
-def read_lines_from_file(filename:str, **kwargs):
-  if os.path.isfile(filename):
-    with open(filename,'r', **kwargs) as f:
-      return [re.sub(r"(\n|\r\n|\r)$","",line) for line in f.readlines()]
-  else:
-    return []
+from dd1.read_lines_from_file import read_lines_from_file
+
+
 
 def module_path(filename:str):
   this_module_path = os.path.dirname(__file__)

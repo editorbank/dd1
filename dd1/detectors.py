@@ -1,7 +1,6 @@
 from re import compile
 from .const import *
 from .result import result
-from json import JSONEncoder,JSONDecoder
 
 class detector():
   """
@@ -135,29 +134,3 @@ class detector_group(detector):
 
   def to_serializable(self)->dict:
     return {**super().to_serializable(),"detectors":[i.to_serializable() for i in self.detectors]}
-
-_all_serializable_detectors = {i.__name__:i for i in (
-  detector_count,
-  detector_regexp,
-  detector_type,
-  detector_unique,
-  detector_group
-)}
-
-
-class json_dump(JSONEncoder):
-  def default(self, o: detector) -> any:
-    return o.to_serializable() if issubclass(type(o),detector) else super().default(o)
-
-class json_load(JSONDecoder):
-  def __init__(self, *args, **kwargs):
-    super().__init__(object_hook = self.object_hook, *args, **kwargs)
-
-  def object_hook(self, dct:dict):
-    if CLASS_KEY in dct:
-      _class_name = dct[CLASS_KEY]
-      dct.pop(CLASS_KEY)
-      if _class_name in _all_serializable_detectors:
-        return (_all_serializable_detectors[_class_name])(**dct)
-    return dct
-

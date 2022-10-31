@@ -7,7 +7,7 @@ from .dd1_www import *
 from .dd1_date import *
 from .dd1_main import *
 
-from .detectors import detector_group, detector_regexp, detector_count, detector_unique, detector_type
+from dd1 import detector_group, detector_regexp, detector_count, detector_unique, detector_type
 from re import compile
 
 _EXTRACT_NAME_P = "id" # имя или номер группы в регулярном выражении значение которой будет идентификатором детектора
