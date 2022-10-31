@@ -38,3 +38,21 @@ print(detect_value("110"))
 print(detect_list(["110", "-01", "00", "0", "a"]))
 print(detect_csv( filename="test/0.csv", encoding="utf-8", quotechar="\x22"))
 ```
+
+## Установка
+* Install pipenv and create virtual environment/Создание виртуальной среды
+```
+pip install --user pipenv && pipenv --python 3.6
+```
+* Installing project dependencies (for development)/Установка зависимостей проекта (для разработки)
+```
+pipenv install --dev
+```
+* Running tests/Запуск тестов
+```
+pipenv run python -m unittest discover -s tests
+```
+* Detete virtual environment/Удаление виртуальной среды
+```
+pipenv --rm
+```

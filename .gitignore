@@ -11,3 +11,4 @@ tests/data/?.*
 
 tests/dd1
 tuner/dd1
+Pipfile.lock
