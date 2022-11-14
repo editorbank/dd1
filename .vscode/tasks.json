@@ -4,28 +4,28 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "1.Создание виртуальной среды",
+      "label": "1. Install pipenv and create virtual environment/Создание виртуальной среды",
       "type": "shell",
-      "command": "pipenv --python 3",
+      "command": "pip install --user pipenv && pipenv --python 3.6",
       "problemMatcher": []
     },
     {
-      "label": "2.Удаление виртуальной среды",
-      "type": "shell",
-      "command": "pipenv --rm",
-      "problemMatcher": []
-    },
-    {
-      "label": "3.Установка зависимостей проекта (для разработки)",
+      "label": "3. Installing project dependencies (for development)/Установка зависимостей проекта (для разработки)",
       "type": "shell",
       "command": "pipenv install --dev",
       "problemMatcher": []
     },
     {
-      "label": "4.Запуск тестов",
+      "label": "4. Running unit tests/Запуск модульных тестов",
       "type": "shell",
       "command": "pipenv run python -m unittest discover -s tests",
       "problemMatcher": []
-    }
+    },
+    {
+      "label": "9. Detete virtual environment/Удаление виртуальной среды",
+      "type": "shell",
+      "command": "pipenv --rm",
+      "problemMatcher": []
+    },
   ]
 }
