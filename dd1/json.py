@@ -27,14 +27,21 @@ class DetectorJSONDecoder(json.JSONDecoder):
         return (_all_serializable_detectors[_class_name])(**dct)
     return dct
 
+def dump_reinit(kw):
+  if "indent" not in kw:
+    kw["indent"] = 1
+  if "ensure_ascii" not in kw:
+    kw["ensure_ascii"] = False
+  return kw
+
 def dumps(obj:detector,*a,**kw):
-  return json.dumps(obj,*a,cls=DetectorJSONEncoder, **kw)
+  return json.dumps(obj,*a, cls=DetectorJSONEncoder, **dump_reinit(kw))
 
 def loads(s,*a,**kw)->detector:
   return json.loads(s,*a,cls=DetectorJSONDecoder, **kw)
 
 def dump(obj:detector,fp,*a,**kw):
-  return json.dump(obj,fp,*a,cls=DetectorJSONEncoder, **kw)
+  return json.dump(obj,fp,*a, cls=DetectorJSONEncoder, **dump_reinit(kw))
 
 def load(fp,*a,**kw)->detector:
   return json.load(fp,*a,cls=DetectorJSONDecoder, **kw)

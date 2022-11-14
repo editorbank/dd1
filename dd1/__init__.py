@@ -1,5 +1,5 @@
 from .detect_list import detect_list
-from .detect_csv import detect_csv, escaped_options
+from .detect_csv import *
 from .const import *
 from .detectors import *
 from .result import result
