@@ -28,7 +28,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install pipenv flake8
         [ -f requirements.txt ] && pip install -r requirements.txt
-        [ -f Pipfile ] && pipenv --python /opt/hostedtoolcache/Python/3.10.8/x64 && pipenv install --dev
+        whereis python
+        [ -f Pipfile ] && pipenv --python /opt/hostedtoolcache/Python/3.10.8/x64/python && pipenv install --dev
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
