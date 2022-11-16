@@ -8,6 +8,9 @@
 а значением количество постурающих значений ему соотвующее.
 Поступать значения могут из различных источников.
 
+## Описание утилит
+* dd1 - Утилита измерения данных по указаной схеме детекторов (по умолчанию данные грузятся из файла default.dds)
+* ddtuner - Настройка/Генерация схемы детекторов (файл default.dds)
 
 ## Примеры запуска из командной строки
 На данный момент для вызова из командной строки поддерживается:
@@ -37,4 +40,22 @@ from dd1 import detect_value, detect_list, detect_csv
 print(detect_value("110"))
 print(detect_list(["110", "-01", "00", "0", "a"]))
 print(detect_csv( filename="test/0.csv", encoding="utf-8", quotechar="\x22"))
+```
+
+## Установка
+* Install pipenv and create virtual environment/Создание виртуальной среды
+```
+pip install --user pipenv && pipenv --python 3.6
+```
+* Installing project dependencies (for development)/Установка зависимостей проекта (для разработки)
+```
+pipenv install --dev
+```
+* Running tests/Запуск тестов
+```
+pipenv run python -m unittest discover -s tests
+```
+* Detete virtual environment/Удаление виртуальной среды
+```
+pipenv --rm
 ```

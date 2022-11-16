@@ -1,0 +1,31 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "1. Install pipenv and create virtual environment/Создание виртуальной среды",
+      "type": "shell",
+      "command": "pip install --user pipenv && pipenv --python 3.6",
+      "problemMatcher": []
+    },
+    {
+      "label": "3. Installing project dependencies (for development)/Установка зависимостей проекта (для разработки)",
+      "type": "shell",
+      "command": "pipenv install --dev",
+      "problemMatcher": []
+    },
+    {
+      "label": "4. Running unit tests/Запуск модульных тестов",
+      "type": "shell",
+      "command": "pipenv run python -m unittest discover -s tests",
+      "problemMatcher": []
+    },
+    {
+      "label": "9. Detete virtual environment/Удаление виртуальной среды",
+      "type": "shell",
+      "command": "pipenv --rm",
+      "problemMatcher": []
+    },
+  ]
+}

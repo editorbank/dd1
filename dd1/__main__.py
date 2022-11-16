@@ -1,5 +1,7 @@
 from sys import argv
-from . import detect_list, detect_csv, alltags, escaped_options, read_lines_from_file, GLOBAL_DETECTOR
+from dd1 import loadf
+from dd1 import detector
+from . import detect_list, detect_csv, escaped_options, read_lines_from_file
 import json
 
 
@@ -14,24 +16,10 @@ def parse_argv(argv)->dict:
   return args
 
 def help():
-    print("""Data Detector v.1
-    Use: python -m dd1 <function> [<param1> [<param2> [...]]]
-    Functions: tags|arg|line|csv
+    print("""Data Detector v.1 common library
+    Use: python -m ddmeter
+     or: python -m ddtuner
     """)  
 
 if __name__ == "__main__":
-  if len(argv) > 1:
-    func = argv[1]
-    if func == "tags":
-      print(dumps(list(sorted(alltags()))))
-    elif func == "values" and len(argv) > 2:
-      print(dumps(detect_list(GLOBAL_DETECTOR, argv[2:])))
-    elif func == "lines" and len(argv) > 2:
-      print(dumps(detect_list(GLOBAL_DETECTOR, read_lines_from_file(**parse_argv(argv[2:])))))
-    elif func == "csv" and len(argv) > 2:
-      print(dumps(detect_csv(GLOBAL_DETECTOR, **parse_argv(argv[2:]))))
-    else:
-      print(f"Undefined function \"{func}\"!")
-      help()
-  else:
     help()
