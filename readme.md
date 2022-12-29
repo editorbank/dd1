@@ -39,4 +39,4 @@ print(detect_list(["110", "-01", "00", "0", "a"]))
 print(detect_csv( filename="test/0.csv", encoding="utf-8", quotechar="\x22"))
 ```
 ## Ссылки
-[https://cran.r-project.org/web/packages/daqapo/vignettes/Introduction-to-DaQAPO.html]
+* [https://cran.r-project.org/web/packages/daqapo/vignettes/Introduction-to-DaQAPO.html](https://cran.r-project.org/web/packages/daqapo/vignettes/Introduction-to-DaQAPO.html)
